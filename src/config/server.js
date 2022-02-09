@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const mysql = require("mysql2");
 
-var connection = mysql.createConnection({
+var connection = mysql.createPool({
   port: process.env.MYSQL_PORT,
   host: process.env.MYSQL_HOSTNAME,
   user: process.env.MYSQL_USERNAME,
@@ -10,7 +10,5 @@ var connection = mysql.createConnection({
   database: process.env.MYSQL_DATABASE,
   insecureAuth: true,
 });
-
-connection.connect();
 
 module.exports = connection;
