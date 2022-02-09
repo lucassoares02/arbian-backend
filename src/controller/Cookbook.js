@@ -5,7 +5,7 @@ const Cookbook = {
   async find(req, res) {
     logger.info("Select All Cookbook limit 51");
 
-    const queryselectAcc = "select * from recipes limit 51";
+    const queryselectAcc = "select * from recipes limit 80 order by idRecipe desc";
 
     connection.query(queryselectAcc, (error, results, fields) => {
       if (error) {
