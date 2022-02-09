@@ -3,7 +3,7 @@ const logger = require("@logger");
 
 const Cookbook = {
   async find(req, res) {
-    logger.info("Select Cookbook");
+    logger.info("Select All Cookbook limit 51");
 
     const queryselectAcc = "select * from recipes limit 51";
 
