@@ -49,6 +49,23 @@ const Cookbook = {
     });
   },
 
+  async findRecipeHighLights(req, res) {
+    logger.info("Select Recipe HighLights");
+
+    const { id } = req.params;
+
+    const queryselectAcc = `select * from recipes join highlights on highlights.recipe = recipes.idRecipe`;
+
+    connection.query(queryselectAcc, (error, results, fields) => {
+      if (error) {
+        console.log("Error Select Users: ", error);
+      } else {
+        return res.json(results);
+      }
+    });
+  },
+
+
 };
 
 module.exports = Cookbook;
