@@ -31,6 +31,24 @@ const Cookbook = {
       }
     });
   },
+
+
+  async findRecipeCategory(req, res) {
+    logger.info("Select Recipe Category");
+
+    const { id } = req.params;
+
+    const queryselectAcc = `select * from recipes where category = ${id}`;
+
+    connection.query(queryselectAcc, (error, results, fields) => {
+      if (error) {
+        console.log("Error Select Users: ", error);
+      } else {
+        return res.json(results);
+      }
+    });
+  },
+
 };
 
 module.exports = Cookbook;

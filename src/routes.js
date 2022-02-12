@@ -6,6 +6,7 @@ const Category = require("@controller/Category");
 
 // Method Cookbook
 router.get("/cookbook", Cookbook.find);
+router.get("/recipecategory/:id", Cookbook.findRecipeCategory);
 
 // Methods User
 router.get("/users", User.find);
