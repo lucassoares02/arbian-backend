@@ -103,7 +103,7 @@ const Cookbook = {
 
     const { title } = req.params;
 
-    const queryselectAcc = `select idRecipe, title from recipes where title like '%${title}%' limit 10`;
+    const queryselectAcc = `select * from recipes where title like '%${title}%' limit 10`;
 
     connection.query(queryselectAcc, (error, results, fields) => {
       if (error) {
