@@ -111,6 +111,18 @@ const Cookbook = {
       } else {
         results.forEach((element, index) => {
           results[index]["title"] = element["title"].replace("\n", "");
+
+          results[index]["ingredients"] = element["ingredients"].split("\n");
+
+          results[index]["preparation"] =
+            element["preparationMode"].split("\n");
+
+          results[index]["preparation"].shift();
+          results[index]["ingredients"].shift();
+
+          results[index]["emphasis"] = index % 2 == 0 ? false : true;
+          results[index]["like"] = index % 2 == 0 ? true : false;
+          results[index]["chefe"] = "Fernadez Gonçalvez";
         });
 
         return res.json(results);
