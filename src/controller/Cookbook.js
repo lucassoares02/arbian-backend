@@ -98,8 +98,8 @@ const Cookbook = {
   },
 
 
-  async findRecipeHighLights(req, res) {
-    logger.info("Select Recipe HighLights");
+  async search(req, res) {
+    logger.info("Select Search Recipe");
 
     const { title } = req.params;
 
