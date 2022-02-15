@@ -103,7 +103,9 @@ const Cookbook = {
 
     const { title } = req.params;
 
-    const queryselectAcc = `select idRecipe, title, category as 'id' from recipes where title like '%${title}%' limit 10`;
+    let queryselectAcc;
+
+    queryselectAcc = `select * from recipes where title like '%${title}%' limit 10`;
 
     connection.query(queryselectAcc, (error, results, fields) => {
       if (error) {
@@ -111,14 +113,24 @@ const Cookbook = {
       } else {
         results.forEach((element, index) => {
           results[index]["title"] = element["title"].replace("\n", "");
+
+          results[index]["ingredients"] = element["ingredients"].split("\n");
+
+          results[index]["preparation"] =
+            element["preparationMode"].split("\n");
+
+          results[index]["preparation"].shift();
+          results[index]["ingredients"].shift();
+
+          results[index]["emphasis"] = index % 2 == 0 ? false : true;
+          results[index]["like"] = index % 2 == 0 ? true : false;
+          results[index]["chefe"] = "Fernadez Gonçalvez";
         });
 
         return res.json(results);
       }
     });
   },
-
-
 };
 
 module.exports = Cookbook;
