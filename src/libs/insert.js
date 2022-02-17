@@ -15,9 +15,9 @@ async function Insert(params) {
       table +
       " (" +
       columnsData.join(",") +
-      ") VALUES ('" +
-      valuesData.join("','") +
-      "')";
+      ") VALUES (" +
+      valuesData.join(",") +
+      ")";
 
     return new Promise(function (resolve, reject) {
       connection.query(query, function (error, results, fields) {

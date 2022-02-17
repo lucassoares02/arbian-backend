@@ -45,6 +45,7 @@ const User = {
         return res.json(error);
       });
   },
+
 };
 
 module.exports = User;

@@ -9,6 +9,9 @@ router.get("/cookbook", Cookbook.find);
 router.get("/recipecategory/:id", Cookbook.findRecipeCategory);
 router.get("/recipeshighlights", Cookbook.findRecipeHighLights);
 router.get("/recipesearch/:title", Cookbook.search);
+router.get("/recipesearchid/:id", Cookbook.searchRecipeId);
+router.post("/savelike", Cookbook.postLike);
+router.get("/deletelike/:user/:recipe", Cookbook.deleteLike);
 
 // Methods User
 router.get("/users", User.find);
