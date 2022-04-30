@@ -39,9 +39,11 @@ const User = {
 
     Insert(params)
       .then((resp) => {
+        console.log(resp);
         return res.json(resp);
       })
       .catch((error) => {
+        console.log(error);
         return res.json(error);
       });
   },

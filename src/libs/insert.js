@@ -9,6 +9,7 @@ async function Insert(params) {
   if (table !== undefined && data !== undefined) {
     const columnsData = Object.keys(data);
     const valuesData = Object.values(data);
+    console.log(valuesData);
 
     const query =
       "INSERT INTO " +
@@ -16,8 +17,10 @@ async function Insert(params) {
       " (" +
       columnsData.join(",") +
       ") VALUES (" +
-      valuesData.join(",") +
-      ")";
+      "'" +valuesData.join("','") +
+      "')";
+
+      console.log(query);
 
     return new Promise(function (resolve, reject) {
       connection.query(query, function (error, results, fields) {
