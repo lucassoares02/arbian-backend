@@ -35,7 +35,7 @@ const Cookbook = {
 
 
   async findRecipeCategory(req, res) {
-    logger.info("Select Recipe Category");
+    logger.info("Select Recipe Categories");
 
     const { id } = req.params;
 
